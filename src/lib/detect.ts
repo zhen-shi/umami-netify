@@ -128,9 +128,9 @@ export async function getClientInfo(req: NextApiRequestCollect) {
   const ip = req.body?.payload?.ip || getIpAddress(req);
   const location = await getLocation(ip, req);
   const country = location?.country;
-  const subdivision1 = location?.subdivision1;
-  const subdivision2 = location?.subdivision2;
-  const city = location?.city;
+  const subdivision1 = "Unknown";
+  const subdivision2 = "Unknown";
+  const city = "Unknown";
   const browser = browserName(userAgent);
   const os = detectOS(userAgent) as string;
   const device = getDevice(req.body?.payload?.screen, os);
